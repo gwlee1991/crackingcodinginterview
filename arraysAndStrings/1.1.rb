@@ -37,8 +37,7 @@ end
 # So time complexity is O(n) and space complexity is O(1) because we only need to keep unique array and asc.
 
 def isUnique3(str)
-  unique = Array.new(str.length)
-
+  unique = Array.new(128)
   i = 0
   while i < str.length
     asc = str[i].ord
@@ -47,7 +46,8 @@ def isUnique3(str)
     i += 1
   end
 
+  p unique
   true
 end
 
-p isUnique3('dogg')
+p isUnique3('dog')
