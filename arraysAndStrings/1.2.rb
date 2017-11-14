@@ -24,17 +24,19 @@ def isPermutation2?(str1, str2)
   return false if str1.length != str2.length
   letters = Array.new(128)
   str1.each_char do |ch|
-    if letters[ch.ord]
-      letters[ch.ord] += 1
+    index = ch.ord
+    if letters[index]
+      letters[index] += 1
     else
-      letters[ch.ord] = 1
+      letters[index] = 1
     end
   end
 
   str2.each_char do |ch|
-    if letters[ch.ord]
-      letters[ch.ord] -= 1
-      if letters[ch.ord] < 0
+    index = ch.ord
+    if letters[index]
+      letters[index] -= 1
+      if letters[index] < 0
         return false
       end
     else
