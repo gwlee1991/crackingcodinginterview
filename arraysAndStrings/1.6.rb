@@ -34,11 +34,7 @@ def string_compression (string)
     end
   end
 
-  if compressed.length > string.length
-    string
-  else
-    compressed
-  end
+  compressed.length > string.length ? string : compressed
 end
 
 
