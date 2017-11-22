@@ -1,3 +1,4 @@
+require_relative 'linked_list'
 # Delete middle node: Implement an algorithm to delete a node
 # in the middle of a singly linked list, given only access to
 # that node.
