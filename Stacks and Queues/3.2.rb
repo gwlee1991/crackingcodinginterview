@@ -54,6 +54,10 @@ class Stack
     @count = 0
   end
 
+  def count
+    @count
+  end
+
   def push(el)
     @store.push(el)
     @count += 1
