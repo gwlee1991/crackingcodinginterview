@@ -19,7 +19,8 @@
 # the stack from the array if the store is empty after popping.
 
 # since our store is an dynamic array, whenever we add a stack or remove it,
-# we have an amortized O(1) time complexity. 
+# we have an amortized O(1) time complexity. The same goes for the store of
+# our Stack class.
 
 class SetOfStacks
 
