@@ -7,6 +7,8 @@ require_relative 'linked_list'
 # create a hash to store nodes and iterate through the list.
 # once we hit a node that is already in the hash,
 # we know that, that is the starting point of the circle loop.
+# because the loop needs to iterate through the list once at maximum,
+# the function takes O(n) time.
 
 def loop_detection(list)
   nodes = Hash.new
