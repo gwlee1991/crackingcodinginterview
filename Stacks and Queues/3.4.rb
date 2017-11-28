@@ -1,5 +1,12 @@
 # Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks
 
+# biggest difference between a stack and a queue is that for stacks it is 
+# last in first out whereas queues are first in first out. However, if we
+# use 2 stacks for our queue, we make it so that the we can pop every element
+# of the first stack and push it into the second stack. That way the elements
+# will be in the order so that they can be pop in the order they first entered
+# the queue.
+
 class MyQueue
 
   def initialize
@@ -20,6 +27,7 @@ class MyQueue
   end
 
   def dequeue
+    raise "queue empty" if @count == 0
     @stack2.push(@stack1.pop) until @stack1.empty?
     element = @stack2.pop
     @count -= 1
