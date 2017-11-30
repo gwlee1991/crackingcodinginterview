@@ -2,10 +2,18 @@
 # unique integer elements, write a algorithm to create a binary
 # search tree with minimal height
 
+
+# to have a binary search tree with minimal height, it means that
+# the tree has to be a balance tree having the same number of elements
+# on both side of the tree. To do this, we need to make sure that we
+# grab the middle element in the array.
+# once we do that, we can build the rest of the tree recursively.
+# it will take O(nLog n) time but O(n) space.
+
 def minimal_tree(arr)
   return nil if arr.empty?
   return arr.first if arr.length == 1
-  
+
   mid = arr.length/2
   node = Node.new
 
