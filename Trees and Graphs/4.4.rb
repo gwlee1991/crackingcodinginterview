@@ -3,6 +3,18 @@
 # defined to be a tree such that the heights of the two subtress of 
 # any node never differ by more than once.
 
-# we need to do this recursively.
-# our check would be when either right or left's node is nil
-# the node that is not nil should not have a child node.
+def get_height(root)
+  return -1 if root == nil
+  [root.left, root.right].max
+end
+
+def is_balanced?(root)
+  return true if root == nil
+
+  height_diff = get_height(root.left) - get_height(root.right)
+  if height_diff.abs > 1
+    return false
+  else
+    return is_balanced?(root.left) && is_balanced?(root.right)
+  end
+end
