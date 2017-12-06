@@ -12,7 +12,16 @@ def create_level_linked_list (root, lists, level)
   else
     list = lists[level]
   end
+  list.append(root)
+  create_level_linked_list(root.left, lists, level + 1)
+  create_level_linked_list(root.righ, lists, level + 1)
 end
 
+
 class LinkedList
+  def initalize
+  end
+
+  def append(node)
+  end
 end
