@@ -21,6 +21,20 @@ def remove_dups (list)
   list
 end
 
+# simply link without any methods and singly linked list
+
+def remove_dups (head)
+  vals = {}
+  curr = head unless head == nil
+  while curr.next != nil
+    unless vals[curr]
+      vals[curr] = true
+    end
+    curr = curr.next
+  end
+  head
+end
+
 linkedlist = LinkedList.new
 node1 = Link.new(5)
 node2 = Link.new(4)
