@@ -28,11 +28,8 @@ def URLify1(str, length)
     if ch != " "
       url += ch
     else
-      prev = chars[i - 1]
-      after = chars[i + 1]
-      if prev != " " && after != " "
-        url += "%20"
-      end
+      prev = url[-3..-1]
+      url += "%20" unless prev == "%20"
     end
   end
   url
@@ -45,4 +42,4 @@ def URLify2(str, length)
   words.join('%20')
 end
 
-p URLify1("Mr John Smith    ", 13)
+p URLify1("Mr  John  Smith    ", 13)
