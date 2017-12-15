@@ -34,7 +34,7 @@ def palindrome?(string)
     count = 0
     letters.values.each do |value|
       if value % 2 != 0
-        return false if value != 1
+        return false if value % 2 != 1
         count += 1
       end
     end
