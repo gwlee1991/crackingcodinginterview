@@ -1,7 +1,7 @@
-# One Away: There are three types of edits that 
-# can be performed on strings: insert a character, 
-# remove a character, or replace a character. 
-# Given two strings, write a function to check 
+# One Away: There are three types of edits that
+# can be performed on strings: insert a character,
+# remove a character, or replace a character.
+# Given two strings, write a function to check
 # if they are one edit (or zero edits) away.
 
 # if the length difference of two strings is bigger than 1, it is always false
@@ -20,9 +20,9 @@ def one_away(str1, str2)
 
   if (longer.length - shorter.length) == 1
     # brute force O(n^2)
-    # longer_chars = longer.chars 
+    # longer_chars = longer.chars
     # shorter.chars.each do |ch| #n2
-    #   return false if longer_chars.delete(ch).nil? 
+    #   return false if longer_chars.delete(ch).nil?
     # end
     # return true
 
@@ -74,3 +74,40 @@ def one_away(str1, str2)
 end
 
 p one_away('pale', 'pal')
+
+#optimization2 O(n) because of the 3 iterations
+def one_away1(str1, str2)
+  return false if (str1.length - str2.length).abs > 1
+
+  if str1.length > str2.length
+    longer, shorter = str1, str2
+  else
+    longer, shorter = str2, str1
+  end
+
+  longer_counter = Hash.new(0)
+
+  longer.chars.each do |ch|
+    longer_counter[ch] += 1
+  end
+
+  shorter.chars.each do |ch|
+    longer_counter[ch] -= 1
+  end
+
+  diff = 0
+
+  longer_counter.values.each do |val|
+    diff += val.abs
+  end
+
+  return false if diff > 1
+  true
+end
+
+p one_away1('aaxnn', 'aahnn') == false
+p one_away1('aaxxnn', 'aahhnn') == false
+p one_away1('ann', 'aah') == false
+p one_away1('edg', 'dg') == true
+p one_away1('palindromieee', 'ialindrompeee') == true
+p one_away1('palindromieee', 'palidromiee') == false
