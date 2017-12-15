@@ -4,7 +4,7 @@
 # and backwards. A permutation is a rearrangement of letters. 
 # The palindrome does not need to be limited to just dictionary words.
 
-# assumption: whitespace doesn't not alter the palidrome
+# assumption: whitespace doesn't alter the palidrome
 # ex: catac == ca tac
 # for a palindrome to work if string is even in length, every letter needs
 # to be even in number(needs to be in pairs) and if odd in length,
