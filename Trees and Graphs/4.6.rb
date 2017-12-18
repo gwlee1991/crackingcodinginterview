@@ -39,8 +39,8 @@ def successor (head)
     return curr.parent unless curr.parent == nil
     # if we haven't returned a node by now, it means that
     # current node is the last node.
-    # therefore we just return the given node.
+    # therefore we just return nil.
   end
 
-  head
+  nil
 end
