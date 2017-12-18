@@ -94,18 +94,26 @@ def one_away1(str1, str2)
   shorter.chars.each do |ch|
     longer_counter[ch] -= 1
   end
-
   diff = 0
 
   longer_counter.values.each do |val|
-    diff += val.abs
+    if str1.length == str2.length
+      diff += val
+    else
+      diff += val.abs
+    end
   end
 
   return false if diff > 1
   true
 end
 
-p one_away1('aaxnn', 'aahnn') == false
+p one_away1("pale", "ple") == true 
+p one_away1("pales", "pale") == true 
+p one_away1("pale", "bale") == true 
+p one_away1("pale", "bae") == false
+
+p one_away1('aaxnn', 'aahnn') == true
 p one_away1('aaxxnn', 'aahhnn') == false
 p one_away1('ann', 'aah') == false
 p one_away1('edg', 'dg') == true
