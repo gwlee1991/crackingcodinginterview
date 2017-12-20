@@ -98,16 +98,22 @@ def one_away1(str1, str2)
   diff = 0
 
   longer_counter.values.each do |val|
-    diff += val.abs
+    diff += (val.to_f.abs / 2)
   end
 
-  return false if diff > 1
+  return false if diff > 1.0
   true
 end
 
-p one_away1('aaxnn', 'aahnn') == false
+
+p one_away1('sdhg', 'ssghz') == false
+p one_away1('coffee', 'coffe') == true
+p one_away1('coffee', 'coffeee') == true
+p one_away1('coffee', 'coffeex') == true
+p one_away1('coffee', 'coffeexy') == false
+p one_away1('aaxnn', 'aahnn') == true
 p one_away1('aaxxnn', 'aahhnn') == false
-p one_away1('ann', 'aah') == false
+p one_away1('ann', 'anh') == true
 p one_away1('edg', 'dg') == true
 p one_away1('palindromieee', 'ialindrompeee') == true
 p one_away1('palindromieee', 'palidromiee') == false
