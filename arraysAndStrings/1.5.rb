@@ -88,7 +88,6 @@ def one_away1(str1, str2)
   str2.chars.each do |ch|
     counter[ch] -= 1
   end
-
   diff = 0
 
   counter.values.each do |val|
@@ -99,12 +98,15 @@ def one_away1(str1, str2)
   true
 end
 
-
 p one_away1('sdhg', 'ssghz') == false
 p one_away1('coffee', 'coffe') == true
 p one_away1('coffee', 'coffeee') == true
 p one_away1('coffee', 'coffeex') == true
 p one_away1('coffee', 'coffeexy') == false
+p one_away1("pale", "ple") == true 
+p one_away1("pales", "pale") == true 
+p one_away1("pale", "bale") == true 
+p one_away1("pale", "bae") == false
 p one_away1('aaxnn', 'aahnn') == true
 p one_away1('aaxxnn', 'aahhnn') == false
 p one_away1('ann', 'anh') == true
