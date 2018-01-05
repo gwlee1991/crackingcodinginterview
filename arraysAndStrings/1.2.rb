@@ -1,5 +1,5 @@
-# Check Permutation: Given two strings, 
-# write a method to decide if one is a 
+# Check Permutation: Given two strings,
+# write a method to decide if one is a
 # permutation of the other.
 
 
@@ -48,3 +48,19 @@ def isPermutation2?(str1, str2)
 end
 
 p isPermutation2?('ddog', 'ggod')
+
+#using a counter hash 0(n) time
+
+def isPermutation3?(str1, str2)
+  return false if str1.length != str2.length
+  letters = Hash.new(0)
+  str1.each_char do |ch|
+    letters[ch] += 1
+  end
+
+  str2.each_char do |ch2|
+    letters[ch2] -=1
+    return false if letters[ch2] < 0
+  end
+  true
+end
