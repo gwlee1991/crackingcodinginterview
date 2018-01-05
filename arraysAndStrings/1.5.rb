@@ -79,25 +79,19 @@ p one_away('pale', 'pal')
 def one_away1(str1, str2)
   return false if (str1.length - str2.length).abs > 1
 
-  if str1.length > str2.length
-    longer, shorter = str1, str2
-  else
-    longer, shorter = str2, str1
+  counter = Hash.new(0)
+
+  str1.chars.each do |ch|
+    counter[ch] += 1
   end
 
-  longer_counter = Hash.new(0)
-
-  longer.chars.each do |ch|
-    longer_counter[ch] += 1
-  end
-
-  shorter.chars.each do |ch|
-    longer_counter[ch] -= 1
+  str2.chars.each do |ch|
+    counter[ch] -= 1
   end
 
   diff = 0
 
-  longer_counter.values.each do |val|
+  counter.values.each do |val|
     diff += (val.to_f.abs / 2)
   end
 
