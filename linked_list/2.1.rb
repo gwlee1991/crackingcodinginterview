@@ -9,14 +9,19 @@ require_relative 'linked_list'
 # list has a val, next, prev
 # duplicate indicates nodes with same values
 # even if node object id is different
-def remove_dups (list) 
+
+def remove_dups (list)
   vals = {}
+  dups = []
   list.each do |node|
     if vals.values.include?(node.val)
-      node.remove
+      dups.push(node.key)
     else
       vals[node] = node.val
     end
+  end
+  dups.each do |key|
+    list.remove(key)
   end
   list
 end
@@ -36,13 +41,10 @@ def remove_dups (head)
 end
 
 linkedlist = LinkedList.new
-node1 = Link.new(5)
-node2 = Link.new(4)
-node3 = Link.new(3)
-linkedlist.append(node1)
-linkedlist.append(node2)
-linkedlist.append(node3)
-linkedlist.append(node1)
-linkedlist.append(node1)
+linkedlist.append(1, 5)
+linkedlist.append(2, 4)
+linkedlist.append(3, 3)
+linkedlist.append(4, 5)
+linkedlist.append(5, 3)
 
 p remove_dups(linkedlist)
