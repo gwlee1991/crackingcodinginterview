@@ -11,6 +11,15 @@
 # After that we check the parent of each node. Once, the parent is the same,
 # we return that node.
 
+# time/space complexity
+# when finding the depth of the nodes, we need to traverse through the tree.
+# if d is the depth of the tree, worst case time complexity for traversing through
+# the tree would be O(d).
+# once we traverse through the tree to find the depth of the node, we traverse up
+# the tree from the deeper node which would also take O(d) time.
+# total time complexity would be O(2d) and by removing the constants
+# finally time complexity is O(d).
+
 def common_ancestor(p , q)
   diff = depth(p) - depth(q)
   deep = diff > 0 ? p : q
